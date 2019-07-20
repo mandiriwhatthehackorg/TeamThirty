@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:pariwisata_mandiri/routes.dart';
-import 'package:pariwisata_mandiri/screens/sign_in/sign_in.dart';
+import 'package:mandiri_plan/routes.dart';
+import 'package:mandiri_plan/screens/widgets/introducing.dart';
 
 void main() => runApp(MyApp());
 
@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home: SignIn(),
+      home: Introducing(),
       routes: routes,
     );
   }
