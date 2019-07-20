@@ -9,6 +9,9 @@ class ManualTransferView extends ManualTransferViewModel {
     return Scaffold(
       appBar: AppBar(
         leading: InkWell(
+          onTap: () {
+            Navigator.of(context).pop();
+          },
           child: Icon(
             Icons.arrow_back_ios,
             color: Color(0xFF013D79),
