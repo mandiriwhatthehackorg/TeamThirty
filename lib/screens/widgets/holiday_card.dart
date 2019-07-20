@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:mandiri_plan/screens/holiday_plan/holiday_plan.dart';
 
 class HolidayCard extends StatelessWidget {
-  HolidayCard({this.image, this.theme, this.location, this.time, this.price});
+  HolidayCard(
+      {this.image,
+      this.theme,
+      this.location,
+      this.time,
+      this.price,
+      this.mode});
 
-  final image, theme, location, time, price;
+  final image, theme, location, time, price, mode;
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +30,18 @@ class HolidayCard extends StatelessWidget {
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
             padding: EdgeInsets.zero,
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (BuildContext context) => HolidayPlan(
+                            image: image,
+                            location: location,
+                            price: price,
+                            time: time,
+                            theme: theme,
+                          )));
+            },
             child: Container(
               child: Stack(
                 children: <Widget>[
@@ -46,7 +64,7 @@ class HolidayCard extends StatelessWidget {
                                   '${location ?? "Bali"}',
                                   style: TextStyle(
                                       fontSize: 20,
-                                      color: theme != "dark"
+                                      color: theme == 0
                                           ? Colors.white
                                           : Color(0xFF2f3542),
                                       fontWeight: FontWeight.w700),
@@ -56,7 +74,7 @@ class HolidayCard extends StatelessWidget {
                                   '/',
                                   style: TextStyle(
                                       fontSize: 16,
-                                      color: theme != "dark"
+                                      color: theme == 0
                                           ? Colors.white
                                           : Color(0xFF2f3542),
                                       fontWeight: FontWeight.w400),
@@ -65,7 +83,7 @@ class HolidayCard extends StatelessWidget {
                                   ' ${time ?? "1 Minggu"}',
                                   style: TextStyle(
                                       fontSize: 12,
-                                      color: theme != "dark"
+                                      color: theme == 0
                                           ? Colors.white
                                           : Color(0xFF2f3542),
                                       fontWeight: FontWeight.w400),
@@ -80,7 +98,7 @@ class HolidayCard extends StatelessWidget {
                                   'RP',
                                   style: TextStyle(
                                       fontSize: 16,
-                                      color: theme != "dark"
+                                      color: theme == 0
                                           ? Colors.white
                                           : Color(0xFF2f3542),
                                       fontWeight: FontWeight.w400),
@@ -90,7 +108,7 @@ class HolidayCard extends StatelessWidget {
                                   '${price ?? "3.000.000"}',
                                   style: TextStyle(
                                       fontSize: 16,
-                                      color: theme != "dark"
+                                      color: theme == 0
                                           ? Colors.white
                                           : Color(0xFF2f3542),
                                       fontWeight: FontWeight.w700),
@@ -100,50 +118,52 @@ class HolidayCard extends StatelessWidget {
                           ],
                         ),
                       )),
-                  Positioned(
-                      bottom: 0,
-                      left: 0,
-                      right: 0,
-                      child: Container(
-                        height: 50,
-                        padding: EdgeInsets.symmetric(horizontal: 20),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(15),
-                              bottomRight: Radius.circular(15)),
-                          color: Color(0xFF013D79),
-                        ),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: <Widget>[
-                            Text(
-                              'Hotel',
-                              style: TextStyle(
-                                  fontSize: 17,
+                  mode == 0
+                      ? Positioned(
+                          bottom: 0,
+                          left: 0,
+                          right: 0,
+                          child: Container(
+                            height: 50,
+                            padding: EdgeInsets.symmetric(horizontal: 20),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.only(
+                                  bottomLeft: Radius.circular(15),
+                                  bottomRight: Radius.circular(15)),
+                              color: Color(0xFF013D79),
+                            ),
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: <Widget>[
+                                Text(
+                                  'Hotel',
+                                  style: TextStyle(
+                                      fontSize: 17,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w700),
+                                ),
+                                SizedBox(width: 5),
+                                Icon(
+                                  Icons.check,
                                   color: Colors.white,
-                                  fontWeight: FontWeight.w700),
-                            ),
-                            SizedBox(width: 5),
-                            Icon(
-                              Icons.check,
-                              color: Colors.white,
-                            ),
-                            SizedBox(width: 10),
-                            Text(
-                              'Tiket Pesawat',
-                              style: TextStyle(
-                                  fontSize: 17,
+                                ),
+                                SizedBox(width: 10),
+                                Text(
+                                  'Tiket Pesawat',
+                                  style: TextStyle(
+                                      fontSize: 17,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w700),
+                                ),
+                                SizedBox(width: 5),
+                                Icon(
+                                  Icons.check,
                                   color: Colors.white,
-                                  fontWeight: FontWeight.w700),
+                                ),
+                              ],
                             ),
-                            SizedBox(width: 5),
-                            Icon(
-                              Icons.check,
-                              color: Colors.white,
-                            ),
-                          ],
-                        ),
-                      ))
+                          ))
+                      : Container()
                 ],
               ),
             ),

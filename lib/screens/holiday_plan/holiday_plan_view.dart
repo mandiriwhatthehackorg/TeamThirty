@@ -190,17 +190,27 @@ class HolidayPlanView extends HolidayPlanViewModel {
                 ),
               ),
             ),
+            SizedBox(height: 30),
+            Container(
+                width: double.maxFinite,
+                margin: EdgeInsets.symmetric(horizontal: 10),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(7.5),
+                  color: Color(0xff0D59B1),
+                ),
+                child: FlatButton(
+                    shape: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(7.5),
+                        borderSide: BorderSide(color: Colors.transparent)),
+                    padding: EdgeInsets.symmetric(vertical: 14, horizontal: 20),
+                    onPressed: () {},
+                    child: Text(
+                      "Pesan Sekarang!",
+                      style: TextStyle(
+                          color: Colors.white, fontWeight: FontWeight.bold),
+                    ))),
           ],
         ),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: Icon(
-          Icons.add,
-          color: Colors.white,
-        ),
-        backgroundColor: Color(0xFF013D79),
       ),
     );
   }
