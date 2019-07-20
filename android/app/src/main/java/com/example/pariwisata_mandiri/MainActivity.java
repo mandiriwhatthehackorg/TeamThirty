@@ -1,4 +1,4 @@
-package com.example.pariwisata_mandiri;
+package com.example.mandiri_plan;
 
 import android.os.Bundle;
 import io.flutter.app.FlutterActivity;
