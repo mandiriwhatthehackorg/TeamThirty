@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mandiri_plan/helpers/mandiri_plan_icon_icons.dart';
 import 'package:mandiri_plan/screens/widgets/holiday_card.dart';
 import './home_view_model.dart';
 
@@ -54,14 +55,18 @@ class HomeView extends HomeViewModel {
                               child: FlatButton(
                                 padding: EdgeInsets.zero,
                                 onPressed: () {
-                                  Navigator.pushNamed(context, '/AutoDebit');
+                                  Navigator.pushNamed(
+                                      context, '/ManualTransfer');
                                 },
                                 child: Column(
                                   children: <Widget>[
                                     Icon(
-                                      Icons.credit_card,
+                                      MandiriPlanIcon.wallet,
                                       color: Colors.white,
                                       size: 35,
+                                    ),
+                                    SizedBox(
+                                      height: 5,
                                     ),
                                     Text(
                                       'Manual Transfer',
@@ -81,9 +86,12 @@ class HomeView extends HomeViewModel {
                               child: Column(
                                 children: <Widget>[
                                   Icon(
-                                    Icons.credit_card,
+                                    MandiriPlanIcon.credit_card,
                                     color: Colors.white,
                                     size: 35,
+                                  ),
+                                  SizedBox(
+                                    height: 5,
                                   ),
                                   Text(
                                     'Auto Debit',
