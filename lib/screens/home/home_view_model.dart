@@ -25,15 +25,17 @@ abstract class HomeViewModel extends State<Home> {
       "image": "assets/bali.jpg",
       "location": "Bali",
       "price": "3.000.000",
-      "theme": "light",
-      "time": "1 Minggu"
+      "theme": 0,
+      "time": "1 Minggu",
+      "mode": 0
     },
     {
       "image": "assets/bangkok.jpg",
       "location": "Bangkok",
       "price": "8.000.000",
-      "theme": "dark",
-      "time": "1 Minggu"
+      "theme": 1,
+      "time": "1 Minggu",
+      "mode": 0
     },
   ];
 
